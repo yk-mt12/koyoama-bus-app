@@ -1,5 +1,5 @@
 'use client'
-import { scheduleTypeState } from '@/state/atoms';
+import { scheduleTypeState } from '../../state/atoms';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 

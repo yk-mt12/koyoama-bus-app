@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import { selectedDirectionState } from '@/state/atoms';
+import { selectedDirectionState } from '../../state/atoms';
 
 const SubTabNavigation: React.FC = () => {
   const [selectedDirection, setSelectedDirection] = useRecoilState(selectedDirectionState);

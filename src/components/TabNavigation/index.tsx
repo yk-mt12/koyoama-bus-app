@@ -1,6 +1,6 @@
 'use client'
 import { useRecoilState } from 'recoil';
-import { activeTabState } from '@/state/atoms';
+import { activeTabState } from'../../state/atoms';
 import { useState } from 'react';
 
 interface Tab {
