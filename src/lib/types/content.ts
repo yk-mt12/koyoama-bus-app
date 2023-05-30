@@ -8,4 +8,4 @@ export type ScheduleData = {
   day: string;
   hour: number;
   minutes: number[];
-}[];
+}[][];

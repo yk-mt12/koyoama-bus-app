@@ -1,4 +1,4 @@
-'use client'
+
 // src/components/SegmentControl.tsx
 import { useRecoilState } from 'recoil';
 import { scheduleTypeState } from '../../state/atoms';
