@@ -1,8 +1,7 @@
-
 // src/components/SegmentControl.tsx
 import { useRecoilState } from 'recoil';
 import { scheduleTypeState } from '../../state/atoms';
-import {DayOfWeek} from '../../lib/types/content'
+import {DayOfWeek} from '../../types/content'
 
 type scheduleValueType = {
   id: DayOfWeek,

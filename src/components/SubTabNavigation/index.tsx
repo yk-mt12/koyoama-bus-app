@@ -2,11 +2,12 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
 import { selectedDirectionState } from '../../state/atoms';
+import { isGoing } from '../../types/content';
 
 const SubTabNavigation: React.FC = () => {
   const [selectedDirection, setSelectedDirection] = useRecoilState(selectedDirectionState);
 
-  const handleDirectionChange = (direction: 'going' | 'returning') => {
+  const handleDirectionChange = (direction: isGoing) => {
     setSelectedDirection(direction);
   };
 
