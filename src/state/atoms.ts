@@ -1,4 +1,4 @@
-import { BusStop, DayOfWeek, Route, isGoing } from "../types/content";
+import { BusStop, DayOfWeek, Route, IsGoing } from "../types/content";
 import { atom } from "recoil";
 
 export const selectedBusStopState = atom<BusStop>({
@@ -6,7 +6,7 @@ export const selectedBusStopState = atom<BusStop>({
   default: "上賀茂神社", // 初期値は空文字列
 });
 
-export const selectedDirectionState = atom<isGoing>({
+export const selectedDirectionState = atom<IsGoing>({
   key: "selectedDirectionState",
   default: "going", // 初期値は'going'
 });
@@ -26,24 +26,4 @@ export const activeTabState = atom<BusStop>({
 export const scheduleTypeState = atom<DayOfWeek>({
   key: "scheduleTypeState", // unique ID (with respect to other atoms/selectors)
   default: "月〜金（水曜日除く）", // default value (aka initial value)
-});
-
-export const kamigamoToUniState = atom<any[]>({
-  key: "kamigamoToUniState", // unique ID (with respect to other atoms/selectors)
-  default: [], // default value (aka initial value)
-});
-
-export const uniToKamigamoState = atom<any[]>({
-  key: "uniToKamigamoState", // unique ID (with respect to other atoms/selectors)
-  default: [], // default value (aka initial value)
-});
-
-export const nikenchayaToUniState = atom<any[]>({
-  key: "nikenToUniState", // unique ID (with respect to other atoms/selectors)
-  default: [], // default value (aka initial value)
-});
-
-export const uniToNikenchayaState = atom<any[]>({
-  key: "uniToNikenState", // unique ID (with respect to other atoms/selectors)
-  default: [], // default value (aka initial value)
 });

@@ -8,7 +8,7 @@ export type Route =
   | "二軒茶屋→大学"
   | "大学→二軒茶屋";
 
-export type isGoing = "going" | "returning";
+export type IsGoing = "going" | "returning";
 
 export type ScheduleData = {
   route: string;

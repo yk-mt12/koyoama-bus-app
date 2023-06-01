@@ -14,7 +14,7 @@ function formatContents(rows: string[][]) {
   let beforeRoute = "";
   let currentRoute = "";
 
-  for (let row of rows) {
+  for (const row of rows) {
     if (days.includes(row[0])) {
       currentDay = row[0];
       continue;

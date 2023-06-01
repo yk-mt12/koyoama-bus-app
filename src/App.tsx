@@ -1,16 +1,16 @@
-import "./App.css";
+import React from "react";
 
 import { TabNavigation } from "./components/TabNavigation";
 import SubTabNavigation from "./components/SubTabNavigation";
-import SegmentControl from "./components/SegmentControl.tsx";
-import TimeTable from "./components/TimeTable/index.tsx";
+import SegmentControl from "./components/SegmentControl";
+import TimeTable from "./components/TimeTable/";
 
-import { Header } from "./components/Header/index.tsx";
+import Header from "./components/Header/";
 import formatContents from "./hooks/formatContents.ts";
 import useContent from "./hooks/useContent.ts";
-import Loading from "./components/Loading/index.tsx";
+import Loading from "./components/Loading";
 
-function App() {
+const App = () => {
   const { data, isLoading } = useContent();
   const formatedData = data ? formatContents(data?.values) : [];
   return (
@@ -34,6 +34,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
