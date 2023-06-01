@@ -25,14 +25,18 @@ function formatContents(rows: string[][]) {
 
     if (row.length > 0) {
       const [hour, ...minutes] = row;
-      formattedRows.push({
-        day: currentDay,
-        hour: Number(hour),
-        route: currentRoute as Route,
-        minutes: minutes
-          .map(Number)
-          .filter((minutes) => 0 <= minutes && minutes <= 59),
-      });
+      // Check if hour can be converted to a number
+      const hourNumber = Number(hour);
+      if (!isNaN(hourNumber)) {
+        formattedRows.push({
+          day: currentDay,
+          hour: hourNumber,
+          route: currentRoute as Route,
+          minutes: minutes
+            .map(Number)
+            .filter((minutes) => 0 <= minutes && minutes <= 59),
+        });
+      }
     }
   }
 
