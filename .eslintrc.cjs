@@ -3,7 +3,9 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ['plugin:react/recommended', 'prettier'],
+  extends: ['plugin:react/recommended',
+  'standard-with-typescript',
+  'prettier'],
   overrides: [
   ],
   parserOptions: {
@@ -15,5 +17,9 @@ module.exports = {
     'react'
   ],
   rules: {
+    'react/function-component-definition': [  
+     'error',
+      { namedComponents: 'arrow-function' }
+    ],
   }
 }
