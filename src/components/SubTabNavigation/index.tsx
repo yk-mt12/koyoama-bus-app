@@ -5,7 +5,7 @@ import {
   selectedDirectionState,
   selectedRouteState,
 } from "../../state/atoms";
-import { isGoing } from "../../types/content";
+import { IsGoing } from "../../types/content";
 
 const SubTabNavigation: React.FC = () => {
   const [selectedDirection, setSelectedDirection] = useRecoilState(
@@ -14,7 +14,7 @@ const SubTabNavigation: React.FC = () => {
   const activeTab = useRecoilValue(activeTabState);
   const setSelectedRoute = useSetRecoilState(selectedRouteState);
 
-  const handleDirectionChange = (direction: isGoing) => {
+  const handleDirectionChange = (direction: IsGoing) => {
     if (direction === "going" && activeTab === "上賀茂神社") {
       setSelectedDirection("going");
       setSelectedRoute("上賀茂神社→大学");

@@ -49,7 +49,6 @@ function formatContents(rows: string[][]) {
     }
   }
 
-  console.log(formattedRows);
   return formattedRows;
 }
 

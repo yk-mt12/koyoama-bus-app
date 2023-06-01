@@ -7,11 +7,7 @@ import {
 import React from "react";
 import { useRecoilValue } from "recoil";
 
-import { ScheduleData } from "../../types/content";
-
-type TimeTableProps = {
-  data: ScheduleData[];
-};
+import { TimeTableProps } from "../../types/content";
 
 const TimeTable: React.FC<TimeTableProps> = ({ data }) => {
   const selectedRoute = useRecoilValue(selectedRouteState);

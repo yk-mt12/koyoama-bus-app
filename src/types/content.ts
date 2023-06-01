@@ -16,3 +16,12 @@ export type ScheduleData = {
   hour: number;
   minutes: number[];
 }[][];
+
+export type TimeTableProps = {
+  data: ScheduleData[];
+};
+
+export type ScheduleValueType = {
+  id: DayOfWeek;
+  label: DayOfWeek;
+}[];
