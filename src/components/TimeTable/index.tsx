@@ -1,4 +1,4 @@
-import { scheduleTypeState, selectedRouteState } from '../../state/atoms';
+import { activeTabState, scheduleTypeState, selectedDirectionState, selectedRouteState } from '../../state/atoms';
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 
@@ -7,12 +7,27 @@ interface TimeTableProps {
 }
 
 const TimeTable: React.FC<TimeTableProps> = ({ data }) => {
-  const selectedRoute  = useRecoilValue(selectedRouteState);
+  const selectedRoute = useRecoilValue(selectedRouteState);
   const day = useRecoilValue(scheduleTypeState);
-  console.log(data)
-  // Filter data based on the provided day
-  const scheduleData = data.filter((item: any) => item.day === day);
-  if(!scheduleData || scheduleData.length === 0) {
+  const activeTab = useRecoilValue(activeTabState);
+  const selectedDirection = useRecoilValue(selectedDirectionState);
+
+  // Filter data based on the provided day, activeTab, and selectedDirection
+  const scheduleData = data.filter((item: any) => {
+    console.log(activeTab, selectedDirection, selectedRoute);
+    return (
+      item.day === day &&
+      item.route === selectedRoute &&
+      (
+        (activeTab === '上賀茂神社' && selectedDirection === 'going' && item.route === '上賀茂神社→大学') ||
+        (activeTab === '上賀茂神社' && selectedDirection === 'returning' && item.route === '大学→上賀茂神社') ||
+        (activeTab === '二軒茶屋' && selectedDirection === 'going' && item.route === '二軒茶屋→大学') ||
+        (activeTab === '二軒茶屋' && selectedDirection === 'returning' && item.route === '大学→二軒茶屋')
+      )
+    );
+  });
+
+  if (!scheduleData || scheduleData.length === 0) {
     return null;
   }
 
@@ -20,7 +35,7 @@ const TimeTable: React.FC<TimeTableProps> = ({ data }) => {
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
       <div className="md:flex justify-center items-center">
         <div className="p-8">
-          <div className=''>
+          <div className="">
             <h2>{selectedRoute}</h2>
           </div>
           <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
