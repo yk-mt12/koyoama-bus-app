@@ -12,8 +12,6 @@ import useContent from './hooks/useContent.ts';
 function App() {
   const { data, isLoading } = useContent();
   const formatedData = data ? formatContents(data?.values) : [];
-  if (isLoading) return <div>loading...</div>;
-
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -25,8 +23,7 @@ function App() {
         <div className="p-1">
           <SegmentControl />
         </div>
-        {isLoading && <div>loading...</div>}
-        {data && <TimeTable data={formatedData} />}
+        {data && <TimeTable data={formatedData} isLading={isLoading}/>}
       </div>
     </div>
   );
