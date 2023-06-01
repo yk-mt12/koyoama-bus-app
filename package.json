@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint src --fix --report-unused-disable-directives --max-warnings 0 && prettier --write .",
+    "lint": "eslint ./src/**/*.{js,jsx,ts,tsx} --fix",
+    "format": "prettier --write ./src",
     "preview": "vite preview",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
@@ -17,9 +18,9 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx}": [
-      "npx eslint . --fix ",
-      "npx prettier --write ."
+    "./src/**/*.{js,ts,jsx,tsx}": [
+      "eslint ./src/**/*.{js,jsx,ts,tsx} --fix",
+      "prettier --write ./src"
     ]
   },
   "dependencies": {
