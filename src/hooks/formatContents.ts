@@ -1,13 +1,18 @@
 import { ScheduleData, Route } from "../types/content";
 
 function formatContents(rows: string[][]) {
-  const days = ['月〜金（水曜日除く）', '水曜日', '土曜日'];
-  const route = ['上賀茂神社→大学', '大学→上賀茂神社', '二軒茶屋→大学', '大学→二軒茶屋']
+  const days = ["月〜金（水曜日除く）", "水曜日", "土曜日"];
+  const route = [
+    "上賀茂神社→大学",
+    "大学→上賀茂神社",
+    "二軒茶屋→大学",
+    "大学→二軒茶屋",
+  ];
   const formattedRows: ScheduleData[] = [];
 
-  let currentDay = '';
-  let beforeRoute = '';
-  let currentRoute = '';
+  let currentDay = "";
+  let beforeRoute = "";
+  let currentRoute = "";
 
   for (let row of rows) {
     if (days.includes(row[0])) {
@@ -19,9 +24,13 @@ function formatContents(rows: string[][]) {
       currentRoute = row[0];
       beforeRoute = currentRoute;
       continue;
-    } else if (!isNaN(Number(row[0])) || row[0] === undefined || row[0] === '読み込んでいます...') {
+    } else if (
+      !isNaN(Number(row[0])) ||
+      row[0] === undefined ||
+      row[0] === "読み込んでいます..."
+    ) {
       currentRoute = beforeRoute;
-    } 
+    }
 
     if (row.length > 0) {
       const [hour, ...minutes] = row;
@@ -40,7 +49,7 @@ function formatContents(rows: string[][]) {
     }
   }
 
-  console.log(formattedRows)
+  console.log(formattedRows);
   return formattedRows;
 }
 

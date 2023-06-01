@@ -1,14 +1,19 @@
-import { activeTabState, scheduleTypeState, selectedDirectionState, selectedRouteState } from '../../state/atoms';
-import React from 'react';
-import { useRecoilValue } from 'recoil';
+import {
+  activeTabState,
+  scheduleTypeState,
+  selectedDirectionState,
+  selectedRouteState,
+} from "../../state/atoms";
+import React from "react";
+import { useRecoilValue } from "recoil";
 
-import { ScheduleData } from '../../types/content';
+import { ScheduleData } from "../../types/content";
 
 interface TimeTableProps {
   data: ScheduleData[];
 }
 
-const TimeTable: React.FC<TimeTableProps> = ({ data}) => {
+const TimeTable: React.FC<TimeTableProps> = ({ data }) => {
   const selectedRoute = useRecoilValue(selectedRouteState);
   const day = useRecoilValue(scheduleTypeState);
   const activeTab = useRecoilValue(activeTabState);
@@ -20,12 +25,18 @@ const TimeTable: React.FC<TimeTableProps> = ({ data}) => {
     return (
       item.day === day &&
       item.route === selectedRoute &&
-      (
-        (activeTab === '上賀茂神社' && selectedDirection === 'going' && item.route === '上賀茂神社→大学') ||
-        (activeTab === '上賀茂神社' && selectedDirection === 'returning' && item.route === '大学→上賀茂神社') ||
-        (activeTab === '二軒茶屋' && selectedDirection === 'going' && item.route === '二軒茶屋→大学') ||
-        (activeTab === '二軒茶屋' && selectedDirection === 'returning' && item.route === '大学→二軒茶屋')
-      )
+      ((activeTab === "上賀茂神社" &&
+        selectedDirection === "going" &&
+        item.route === "上賀茂神社→大学") ||
+        (activeTab === "上賀茂神社" &&
+          selectedDirection === "returning" &&
+          item.route === "大学→上賀茂神社") ||
+        (activeTab === "二軒茶屋" &&
+          selectedDirection === "going" &&
+          item.route === "二軒茶屋→大学") ||
+        (activeTab === "二軒茶屋" &&
+          selectedDirection === "returning" &&
+          item.route === "大学→二軒茶屋"))
     );
   });
 
@@ -43,15 +54,18 @@ const TimeTable: React.FC<TimeTableProps> = ({ data}) => {
           <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
             <h2>{day}</h2>
           </div>
-          {scheduleData && scheduleData.map((item: any, index: number) => {
-            return (
-              <div key={index} className="mt-1 text-gray-500 text-sm">
-                <h3 className="block mt-1 text-lg leading-tight font-medium text-black">{item.hour}時</h3>
-                <p>{item.minutes.join(", ")}</p>
-                <div className="border-t border-gray-200 mt-1"></div>
-              </div>
-            );
-          })}
+          {scheduleData &&
+            scheduleData.map((item: any, index: number) => {
+              return (
+                <div key={index} className="mt-1 text-gray-500 text-sm">
+                  <h3 className="block mt-1 text-lg leading-tight font-medium text-black">
+                    {item.hour}時
+                  </h3>
+                  <p>{item.minutes.join(", ")}</p>
+                  <div className="border-t border-gray-200 mt-1"></div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>

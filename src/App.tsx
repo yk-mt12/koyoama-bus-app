@@ -1,14 +1,14 @@
-import './App.css';
-import { TabNavigation } from './components/TabNavigation';
-import SubTabNavigation from './components/SubTabNavigation';
-import SegmentControl from './components/SegmentControl.tsx';
-import TimeTable from './components/TimeTable/index.tsx';
-import useSWR from 'swr';
+import "./App.css";
 
-import { Header } from './components/Header/index.tsx';
-import formatContents from './hooks/formatContents.ts';
-import useContent from './hooks/useContent.ts';
-import Loading from './components/Loading/index.tsx';
+import { TabNavigation } from "./components/TabNavigation";
+import SubTabNavigation from "./components/SubTabNavigation";
+import SegmentControl from "./components/SegmentControl.tsx";
+import TimeTable from "./components/TimeTable/index.tsx";
+
+import { Header } from "./components/Header/index.tsx";
+import formatContents from "./hooks/formatContents.ts";
+import useContent from "./hooks/useContent.ts";
+import Loading from "./components/Loading/index.tsx";
 
 function App() {
   const { data, isLoading } = useContent();
@@ -24,11 +24,13 @@ function App() {
         <div className="p-1">
           <SegmentControl />
         </div>
-        {!isLoading ? (
+        {isLoading ? (
           <div className="flex justify-center items-center mt-20">
-        <Loading />
-      </div>
-        ) :<TimeTable data={formatedData} />}
+            <Loading />
+          </div>
+        ) : (
+          <TimeTable data={formatedData} />
+        )}
       </div>
     </div>
   );
