@@ -8,6 +8,7 @@ import useSWR from 'swr';
 import { Header } from './components/Header/index.tsx';
 import formatContents from './hooks/formatContents.ts';
 import useContent from './hooks/useContent.ts';
+import Loading from './components/Loading/index.tsx';
 
 function App() {
   const { data, isLoading } = useContent();
@@ -23,7 +24,11 @@ function App() {
         <div className="p-1">
           <SegmentControl />
         </div>
-        {data && <TimeTable data={formatedData} isLading={isLoading}/>}
+        {!isLoading ? (
+          <div className="flex justify-center items-center mt-20">
+        <Loading />
+      </div>
+        ) :<TimeTable data={formatedData} />}
       </div>
     </div>
   );

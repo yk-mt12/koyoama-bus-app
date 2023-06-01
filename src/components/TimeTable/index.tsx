@@ -2,11 +2,13 @@ import { activeTabState, scheduleTypeState, selectedDirectionState, selectedRout
 import React from 'react';
 import { useRecoilValue } from 'recoil';
 
+import { ScheduleData } from '../../types/content';
+
 interface TimeTableProps {
-  data: any;
+  data: ScheduleData[];
 }
 
-const TimeTable: React.FC<TimeTableProps> = ({ data }) => {
+const TimeTable: React.FC<TimeTableProps> = ({ data}) => {
   const selectedRoute = useRecoilValue(selectedRouteState);
   const day = useRecoilValue(scheduleTypeState);
   const activeTab = useRecoilValue(activeTabState);
@@ -41,7 +43,7 @@ const TimeTable: React.FC<TimeTableProps> = ({ data }) => {
           <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
             <h2>{day}</h2>
           </div>
-          {scheduleData.map((item: any, index: number) => {
+          {scheduleData && scheduleData.map((item: any, index: number) => {
             return (
               <div key={index} className="mt-1 text-gray-500 text-sm">
                 <h3 className="block mt-1 text-lg leading-tight font-medium text-black">{item.hour}時</h3>
