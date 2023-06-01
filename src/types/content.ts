@@ -7,6 +7,7 @@ export type Route = '上賀茂神社→大学' | '大学→上賀茂神社' | '�
 export type isGoing = 'going' | 'returning';
 
 export type ScheduleData = {
+  route: string;
   day: string;
   hour: number;
   minutes: number[];
