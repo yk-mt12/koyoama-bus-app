@@ -1,11 +1,26 @@
 
-import { useRecoilState } from 'recoil';
-import { activeTabState } from'../../state/atoms';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { activeTabState, selectedDirectionState, selectedRouteState } from'../../state/atoms';
 
 export const TabNavigation = () => {
+  const selectedDirection = useRecoilValue(selectedDirectionState);
   const [activeTab, setActiveTab] = useRecoilState(activeTabState);
+  const setSelectedRoute = useSetRecoilState(selectedRouteState)
+
   const handleTabChange = (label: '上賀茂神社' | '二軒茶屋') => {
-    setActiveTab(label);
+    if(label === '上賀茂神社' && selectedDirection === 'going') {
+      setActiveTab('上賀茂神社');
+      setSelectedRoute('上賀茂神社→大学');
+    } else if(label === '上賀茂神社' && selectedDirection === 'returning') {
+      setActiveTab('上賀茂神社');
+      setSelectedRoute('大学→上賀茂神社');
+    } else if(label === '二軒茶屋' && selectedDirection === 'going') {
+      setActiveTab('二軒茶屋');
+      setSelectedRoute('二軒茶屋→大学');
+    } else if(label === '二軒茶屋' && selectedDirection === 'returning') {
+      setActiveTab('二軒茶屋');
+      setSelectedRoute('大学→二軒茶屋');
+    }
   };
 
   return (

@@ -1,14 +1,31 @@
 
 import React from 'react';
-import { useRecoilState } from 'recoil';
-import { selectedDirectionState } from '../../state/atoms';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { activeTabState, selectedDirectionState, selectedRouteState } from '../../state/atoms';
 import { isGoing } from '../../types/content';
 
 const SubTabNavigation: React.FC = () => {
   const [selectedDirection, setSelectedDirection] = useRecoilState(selectedDirectionState);
+  const activeTab = useRecoilValue(activeTabState)
+  const setSelectedRoute = useSetRecoilState(selectedRouteState)
 
   const handleDirectionChange = (direction: isGoing) => {
-    setSelectedDirection(direction);
+    if (direction === 'going' && activeTab === '上賀茂神社') {
+      setSelectedDirection('going');
+      setSelectedRoute('上賀茂神社→大学');
+    }
+    else if (direction === 'returning' && activeTab === '上賀茂神社') {
+      setSelectedDirection('returning');
+      setSelectedRoute('大学→上賀茂神社');
+    }
+    else if (direction === 'going' && activeTab === '二軒茶屋') {
+        setSelectedDirection('going');
+        setSelectedRoute('二軒茶屋→大学');
+    }
+    else if (direction === 'returning' && activeTab === '二軒茶屋') {
+      setSelectedDirection('returning');
+      setSelectedRoute('大学→二軒茶屋');
+    }
   };
 
   return (
