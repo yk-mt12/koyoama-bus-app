@@ -16,6 +16,7 @@ import {
   selectedDirectionState,
   selectedRouteState,
 } from "./state/atoms.ts";
+import Adsense from "./components/Adsense/index.tsx";
 
 const App = () => {
   const activeTab = useRecoilValue(activeTabState);
@@ -61,6 +62,7 @@ const App = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Adsense />
       <Header />
       <div className="flex-grow p-4 mt-2">
         <TabNavigation />
@@ -77,6 +79,9 @@ const App = () => {
         ) : (
           <TimeTable data={scheduleData} />
         )}
+      </div>
+      <div className="mt-4">
+        <Adsense />
       </div>
     </div>
   );
