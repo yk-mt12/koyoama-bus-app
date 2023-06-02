@@ -8,6 +8,8 @@ import formatContents from "./hooks/formatContents.ts";
 import useContent from "./hooks/useContent.ts";
 import Loading from "./components/Loading";
 import { useRecoilValue } from "recoil";
+import ReactGA from "react-ga4";
+import { useEffect } from "react";
 import {
   activeTabState,
   scheduleTypeState,
@@ -44,6 +46,18 @@ const App = () => {
           item.route === "大学→二軒茶屋"))
     );
   });
+
+  useEffect(() => {
+    // Google Analytics 測定 ID を入力して設定
+    ReactGA.initialize(import.meta.env.VITE_GA_MEASUREMENT_ID);
+
+    // ページビューイベントを処理
+    ReactGA.send({
+      hitType: "pageview",
+      // アクセスしたパス (pathname) とクエリ文字列 (search) を送付する (必要に応じて編集する)
+      page: location.pathname + location.search,
+    });
+  }, [location]);
 
   return (
     <div className="flex flex-col min-h-screen">
