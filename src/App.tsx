@@ -1,5 +1,3 @@
-import React from "react";
-
 import { TabNavigation } from "./components/TabNavigation";
 import SubTabNavigation from "./components/SubTabNavigation";
 import SegmentControl from "./components/SegmentControl";

@@ -15,10 +15,10 @@ export type ScheduleData = {
   day: string;
   hour: number;
   minutes: number[];
-}[][];
+}[];
 
 export type TimeTableProps = {
-  data: ScheduleData[];
+  data: ScheduleData;
 };
 
 export type ScheduleValueType = {

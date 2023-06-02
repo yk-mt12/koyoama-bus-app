@@ -1,4 +1,4 @@
-import { ScheduleData, Route } from "../types/content";
+import { ScheduleData } from "../types/content";
 
 function formatContents(rows: string[][]) {
   const days = ["月〜金（水曜日除く）", "水曜日", "土曜日"];
@@ -8,7 +8,7 @@ function formatContents(rows: string[][]) {
     "二軒茶屋→大学",
     "大学→二軒茶屋",
   ];
-  const formattedRows: ScheduleData[] = [];
+  const formattedRows: ScheduleData = [];
 
   let currentDay = "";
   let beforeRoute = "";
@@ -38,9 +38,9 @@ function formatContents(rows: string[][]) {
       const hourNumber = Number(hour);
       if (!isNaN(hourNumber)) {
         formattedRows.push({
+          route: currentRoute,
           day: currentDay,
           hour: hourNumber,
-          route: currentRoute as Route,
           minutes: minutes
             .map(Number)
             .filter((minutes) => 0 <= minutes && minutes <= 59),

@@ -1,9 +1,4 @@
-import {
-  activeTabState,
-  scheduleTypeState,
-  selectedDirectionState,
-  selectedRouteState,
-} from "../../state/atoms";
+import { scheduleTypeState, selectedRouteState } from "../../state/atoms";
 import React from "react";
 import { useRecoilValue } from "recoil";
 
