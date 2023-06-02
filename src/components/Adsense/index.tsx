@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 const hostname = import.meta.env.VITE_PRODUCTION_HOST; //本番サイトのホスト名
 
