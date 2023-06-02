@@ -19,7 +19,7 @@ const Adsense = () => {
 
   return (
     <div>
-      {window.location.hostname == hostname ? (
+      {window.location.hostname == hostname && (
         <ins
           className="adsbygoogle"
           style={{ display: "block", textAlign: "center" }}
@@ -28,8 +28,6 @@ const Adsense = () => {
           data-ad-client={import.meta.env.VITE_ADSENSE_CLIENT_ID}
           data-ad-slot={import.meta.env.VITE_ADSENSE_DIRECT}
         ></ins>
-      ) : (
-        <div style={{ padding: "10px", border: "1px solid #333" }}>広告</div>
       )}
     </div>
   );
