@@ -1,29 +1,42 @@
-import { TabNavigation } from "./components/TabNavigation";
-import SubTabNavigation from "./components/SubTabNavigation";
-import SegmentControl from "./components/SegmentControl";
-import TimeTable from "./components/TimeTable/";
-
-import Header from "./components/Header/";
-import formatContents from "./hooks/formatContents.ts";
-import useContent from "./hooks/useContent.ts";
-import Loading from "./components/Loading";
 import { useRecoilValue } from "recoil";
 import ReactGA from "react-ga4";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+// global state
 import {
   activeTabState,
   scheduleTypeState,
   selectedDirectionState,
   selectedRouteState,
 } from "./state/atoms.ts";
-import Adsense from "./components/Adsense/index.tsx";
+
+// component
+import { TabNavigation } from "./components/TabNavigation";
+import SubTabNavigation from "./components/SubTabNavigation";
+import SegmentControl from "./components/SegmentControl";
+import TimeTable from "./components/TimeTable/";
+import Header from "./components/Header/";
+import Loading from "./components/Loading";
+import Adsense from "./components/Adsense";
+import News from "./components/News/index.tsx";
+
+// hooks
+import formatContents from "./hooks/formatContents.ts";
+import useContent from "./hooks/useContent.ts";
+import { NewsItem, NewsResponse } from "./types/news.ts";
+import getNews from "./hooks/client.ts";
 
 const App = () => {
+  // ローカルステート
+  const [news, setNews] = useState<NewsResponse | undefined>([]);
+
+  // グローバルステート
   const activeTab = useRecoilValue(activeTabState);
   const selectedDirection = useRecoilValue(selectedDirectionState);
   const day = useRecoilValue(scheduleTypeState);
   const selectedRoute = useRecoilValue(selectedRouteState);
 
+  // データ取得
   const { data, isLoading } = useContent();
   const formatedData = data ? formatContents(data?.values) : [];
 
@@ -48,6 +61,12 @@ const App = () => {
   });
 
   useEffect(() => {
+    getNews().then((data: any) => {
+      setNews(data.contents);
+    });
+  }, []);
+
+  useEffect(() => {
     // Google Analytics 測定 ID を入力して設定
     ReactGA.initialize(import.meta.env.VITE_GA_MEASUREMENT_ID);
 
@@ -63,6 +82,7 @@ const App = () => {
     <div className="flex flex-col min-h-screen">
       <Adsense />
       <Header />
+      <News news={news} />
       <div className="flex-grow p-4 mt-2">
         <TabNavigation />
         <div className="p-1 mt-2">
