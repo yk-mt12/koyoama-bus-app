@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { createClient } from "microcms-js-sdk";
 
 const getNews = async () => {

@@ -23,12 +23,12 @@ import News from "./components/News/index.tsx";
 // hooks
 import formatContents from "./hooks/formatContents.ts";
 import useContent from "./hooks/useContent.ts";
-import { NewsItem, NewsResponse } from "./types/news.ts";
+import { NewsItem } from "./types/news.ts";
 import getNews from "./hooks/client.ts";
 
 const App = () => {
   // ローカルステート
-  const [news, setNews] = useState<NewsResponse | undefined>([]);
+  const [news, setNews] = useState<NewsItem[] | undefined>(undefined);
 
   // グローバルステート
   const activeTab = useRecoilValue(activeTabState);
@@ -82,7 +82,7 @@ const App = () => {
     <div className="flex flex-col min-h-screen">
       <Adsense />
       <Header />
-      <News news={news} />
+      <News news={news || []} />
       <div className="flex-grow p-4 mt-2">
         <TabNavigation />
         <div className="p-1 mt-2">
