@@ -29,7 +29,6 @@ const App = () => {
 
   // Filter data based on the provided day, activeTab, and selectedDirection
   const scheduleData = formatedData.filter((item: any) => {
-    console.log(activeTab, selectedDirection, selectedRoute);
     return (
       item.day === day &&
       item.route === selectedRoute &&
