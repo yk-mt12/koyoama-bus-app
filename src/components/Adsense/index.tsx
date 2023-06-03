@@ -25,8 +25,8 @@ const Adsense = () => {
           style={{ display: "block", textAlign: "center" }}
           data-ad-layout="in-article"
           data-ad-format="fluid"
-          data-ad-client={import.meta.env.VITE_ADSENSE_CLIENT_ID}
-          data-ad-slot={import.meta.env.VITE_ADSENSE_DIRECT}
+          data-ad-client="ca-pub-1360067821500263"
+          data-ad-slot=""
         ></ins>
       )}
     </div>
