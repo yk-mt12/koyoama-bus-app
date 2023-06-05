@@ -33,7 +33,7 @@ const SubTabNavigation: React.FC = () => {
   return (
     <div className="flex justify-center space-x-4 text-xs sm:text-base">
       <button
-        className={`py-3 sm:py-2 px-6 rounded-lg font-medium  ${
+        className={`py-3 sm:py-2 px-6 rounded-lg font-semibold  ${
           selectedDirection === "going"
             ? "bg-blue-500 text-white"
             : "bg-white text-blue-500"
@@ -43,7 +43,7 @@ const SubTabNavigation: React.FC = () => {
         行き
       </button>
       <button
-        className={`py-3 sm:py-2 px-6 rounded-lg font-medium ${
+        className={`py-3 sm:py-2 px-6 rounded-lg font-semibold ${
           selectedDirection === "returning"
             ? "bg-blue-500 text-white"
             : "bg-white text-blue-500"

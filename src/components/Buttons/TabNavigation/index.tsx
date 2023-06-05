@@ -33,7 +33,7 @@ export const TabNavigation = () => {
           activeTab === "上賀茂神社"
             ? "bg-blue-500 text-white"
             : "text-blue-500 bg-white"
-        } px-4 py-3 sm:py-2 rounded-lg font-medium`}
+        } px-4 py-3 sm:py-2 rounded-lg font-semibold`}
         onClick={() => handleTabChange("上賀茂神社")}
       >
         上賀茂神社
@@ -43,7 +43,7 @@ export const TabNavigation = () => {
           activeTab === "二軒茶屋"
             ? "bg-blue-500 text-white"
             : "text-blue-500 bg-white"
-        } px-4 py-3 sm:py-2 rounded-lg font-medium`}
+        } px-4 py-3 sm:py-2 rounded-lg font-semibold`}
         onClick={() => handleTabChange("二軒茶屋")}
       >
         二軒茶屋
