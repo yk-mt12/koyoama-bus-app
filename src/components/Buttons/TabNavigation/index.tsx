@@ -27,13 +27,13 @@ export const TabNavigation = () => {
   };
 
   return (
-    <nav className="flex space-x-4 justify-center items-center text-xs sm:text-base">
+    <nav className="flex space-x-4 justify-center items-center text-xs sm:text-base font-medium">
       <button
         className={`${
           activeTab === "上賀茂神社"
             ? "bg-blue-500 text-white"
             : "text-blue-500 bg-white"
-        } px-4 py-3 sm:py-2 rounded-md font-medium`}
+        } px-4 py-3 sm:py-2 rounded-md`}
         onClick={() => handleTabChange("上賀茂神社")}
       >
         上賀茂神社
@@ -43,7 +43,7 @@ export const TabNavigation = () => {
           activeTab === "二軒茶屋"
             ? "bg-blue-500 text-white"
             : "text-blue-500 bg-white"
-        } px-4 py-3 sm:py-2 rounded-md font-medium`}
+        } px-4 py-3 sm:py-2 rounded-lg font-medium`}
         onClick={() => handleTabChange("二軒茶屋")}
       >
         二軒茶屋

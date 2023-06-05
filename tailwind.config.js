@@ -17,6 +17,16 @@ export default {
       lg: "1024px",
       xl: "1280px",
     },
+    fontFamily: {
+      sans: [
+        "Arial",
+        "游ゴシック体",
+        "YuGothic",
+        "メイリオ",
+        "Meiryo",
+        "sans-serif",
+      ],
+    },
   },
   plugins: [],
 };

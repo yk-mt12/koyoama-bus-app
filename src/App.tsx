@@ -79,7 +79,7 @@ const App = () => {
   }, [location]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-bg-main">
+    <div className="flex flex-col min-h-screen bg-bg-main font-sans">
       <Adsense />
       <Header />
       <div className="flex-grow px-4 mt-2">

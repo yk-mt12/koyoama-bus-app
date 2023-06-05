@@ -13,7 +13,7 @@ export const SegmentControl = () => {
   ];
 
   return (
-    <div className="flex justify-center space-x-4 text-xs sm:text-base">
+    <div className="flex justify-center space-x-4 text-xs sm:text-base font-medium">
       {scheduleTypes.map((type) => (
         <button
           key={type.id}

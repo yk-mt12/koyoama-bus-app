@@ -31,7 +31,7 @@ const SubTabNavigation: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center space-x-4 text-xs sm:text-base">
+    <div className="flex justify-center space-x-4 text-xs sm:text-base font-medium">
       <button
         className={`py-3 sm:py-2 px-6 rounded-md ${
           selectedDirection === "going"
