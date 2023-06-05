@@ -11,9 +11,9 @@ import {
 } from "./state/atoms.ts";
 
 // component
-import { TabNavigation } from "./components/TabNavigation";
-import SubTabNavigation from "./components/SubTabNavigation";
-import SegmentControl from "./components/SegmentControl";
+import { TabNavigation } from "./components/Buttons/TabNavigation";
+import SubTabNavigation from "./components/Buttons/SubTabNavigation";
+import SegmentControl from "./components/Buttons/SegmentControl/index.tsx";
 import TimeTable from "./components/TimeTable/";
 import Header from "./components/Header/";
 import Loading from "./components/Loading";
@@ -79,28 +79,34 @@ const App = () => {
   }, [location]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-bg-main">
       <Adsense />
       <Header />
-      <News news={news || []} />
-      <div className="flex-grow p-4 mt-2">
+      <div className="flex-grow px-4 mt-2">
+        <News news={news || []} />
+      </div>
+      <div className="py-1">
         <TabNavigation />
-        <div className="p-1 mt-2">
-          <SubTabNavigation />
-        </div>
-        <div className="p-1">
-          <SegmentControl />
-        </div>
+      </div>
+      <div className="py-1 mt-1">
+        <SubTabNavigation />
+      </div>
+      <div className="py-1 mt-1">
+        <SegmentControl />
+      </div>
+      <div className="flex-grow px-4 mt-2">
         {isLoading ? (
           <div className="flex justify-center items-center mt-20">
             <Loading />
           </div>
         ) : (
-          <TimeTable data={scheduleData} />
+          <div className="mt-4">
+            <TimeTable data={scheduleData} />
+          </div>
         )}
-      </div>
-      <div className="mt-4">
-        <Adsense />
+        <div className="mt-4">
+          <Adsense />
+        </div>
       </div>
     </div>
   );
