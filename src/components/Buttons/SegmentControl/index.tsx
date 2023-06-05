@@ -13,12 +13,12 @@ export const SegmentControl = () => {
   ];
 
   return (
-    <div className="flex justify-center space-x-4 text-xs sm:text-base font-medium">
+    <div className="flex justify-center space-x-4 text-xs sm:text-base">
       {scheduleTypes.map((type) => (
         <button
           key={type.id}
           onClick={() => setScheduleType(type.id)}
-          className={`px-4 py-3 sm:py-2 rounded-lg ${
+          className={`px-4 py-3 sm:py-2 rounded-lg font-medium ${
             scheduleType === type.id
               ? "bg-blue-500 text-white"
               : "bg-white text-blue-500"
