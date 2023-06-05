@@ -3,7 +3,7 @@ import {
   activeTabState,
   selectedDirectionState,
   selectedRouteState,
-} from "../../state/atoms";
+} from "../../../state/atoms";
 
 export const TabNavigation = () => {
   const selectedDirection = useRecoilValue(selectedDirectionState);
@@ -33,7 +33,7 @@ export const TabNavigation = () => {
           activeTab === "上賀茂神社"
             ? "bg-blue-500 text-white"
             : "text-blue-500 bg-white"
-        } px-4 py-2 rounded-md text-sm font-medium`}
+        } px-4 py-2 rounded-md font-medium`}
         onClick={() => handleTabChange("上賀茂神社")}
       >
         上賀茂神社

@@ -4,8 +4,8 @@ import {
   activeTabState,
   selectedDirectionState,
   selectedRouteState,
-} from "../../state/atoms";
-import { IsGoing } from "../../types/content";
+} from "../../../state/atoms";
+import { IsGoing } from "../../../types/content";
 
 const SubTabNavigation: React.FC = () => {
   const [selectedDirection, setSelectedDirection] = useRecoilState(
@@ -36,7 +36,7 @@ const SubTabNavigation: React.FC = () => {
         className={`py-2 px-4 rounded-md ${
           selectedDirection === "going"
             ? "bg-blue-500 text-white"
-            : "bg-gray-200 text-gray-800"
+            : "bg-bg-card text-gray-800"
         }`}
         onClick={() => handleDirectionChange("going")}
       >
@@ -46,7 +46,7 @@ const SubTabNavigation: React.FC = () => {
         className={`py-2 px-4 rounded-md ${
           selectedDirection === "returning"
             ? "bg-blue-500 text-white"
-            : "bg-gray-200 text-gray-800"
+            : "bg-bg-card text-gray-800"
         }`}
         onClick={() => handleDirectionChange("returning")}
       >
