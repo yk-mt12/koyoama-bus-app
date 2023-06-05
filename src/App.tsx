@@ -82,15 +82,19 @@ const App = () => {
     <div className="flex flex-col min-h-screen bg-bg-main">
       <Adsense />
       <Header />
-      <News news={news || []} />
       <div className="flex-grow px-4 mt-2">
+        <News news={news || []} />
+      </div>
+      <div className="py-1">
         <TabNavigation />
-        <div className="p-1 mt-2">
-          <SubTabNavigation />
-        </div>
-        <div className="p-1 mt-2">
-          <SegmentControl />
-        </div>
+      </div>
+      <div className="py-1 mt-1">
+        <SubTabNavigation />
+      </div>
+      <div className="py-1 mt-1">
+        <SegmentControl />
+      </div>
+      <div className="flex-grow px-4 mt-2">
         {isLoading ? (
           <div className="flex justify-center items-center mt-20">
             <Loading />
@@ -100,9 +104,9 @@ const App = () => {
             <TimeTable data={scheduleData} />
           </div>
         )}
-      </div>
-      <div className="mt-4">
-        <Adsense />
+        <div className="mt-4">
+          <Adsense />
+        </div>
       </div>
     </div>
   );

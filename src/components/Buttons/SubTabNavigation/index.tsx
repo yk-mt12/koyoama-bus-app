@@ -31,22 +31,22 @@ const SubTabNavigation: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center space-x-4">
+    <div className="flex justify-center space-x-4 text-xs sm:text-base">
       <button
-        className={`py-2 px-4 rounded-md ${
+        className={`py-3 sm:py-2 px-6 rounded-md ${
           selectedDirection === "going"
             ? "bg-blue-500 text-white"
-            : "bg-bg-card text-gray-800"
+            : "bg-white text-blue-500"
         }`}
         onClick={() => handleDirectionChange("going")}
       >
         行き
       </button>
       <button
-        className={`py-2 px-4 rounded-md ${
+        className={`py-3 sm:py-2 px-6 rounded-md ${
           selectedDirection === "returning"
             ? "bg-blue-500 text-white"
-            : "bg-bg-card text-gray-800"
+            : "bg-white text-blue-500"
         }`}
         onClick={() => handleDirectionChange("returning")}
       >

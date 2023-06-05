@@ -9,7 +9,10 @@ const News: React.FC<Props> = ({ news }) => {
   return (
     <div className="flex flex-col items-center">
       {news.map((item: NewsItem) => (
-        <div key={item.id} className="rounded-lg shadow-md p-4 my-4 max-w-full">
+        <div
+          key={item.id}
+          className="rounded-lg shadow p-4 my-4 max-w-full bg-bg-card md:max-w-full"
+        >
           <h2
             className={`text-lg font-bold mb-2 ${getCategoryColor(
               item.category.name
