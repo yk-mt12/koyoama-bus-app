@@ -17,8 +17,8 @@ import SegmentControl from "./components/Buttons/SegmentControl/index.tsx";
 import TimeTable from "./components/TimeTable/";
 import Header from "./components/Header/";
 import Loading from "./components/Loading";
-import Adsense from "./components/Adsense";
 import News from "./components/News/index.tsx";
+import AdmaxSwitch from "./components/Adsense/AdmaxSwitch.tsx";
 
 // hooks
 import formatContents from "./hooks/formatContents.ts";
@@ -80,7 +80,8 @@ const App = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-bg-main font-sans">
-      <Adsense />
+      <AdmaxSwitch id="66be9478a9fd3b66bdf899e7085c3696" />
+
       <Header />
       <div className="flex-grow px-4 mt-2">
         <News news={news || []} />
@@ -104,9 +105,6 @@ const App = () => {
             <TimeTable data={scheduleData} />
           </div>
         )}
-        <div className="mt-4">
-          <Adsense />
-        </div>
       </div>
     </div>
   );
