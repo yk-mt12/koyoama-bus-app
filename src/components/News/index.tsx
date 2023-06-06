@@ -23,19 +23,19 @@ const News: React.FC<Props> = ({ news }) => {
           <h3 className="text-base font-semibold mb-1">{item.title}</h3>
           {item.content1 && (
             <p
-              className={`text-sm text-gray-700 transition-colors duration-300 hover:text-blue-500`}
+              className={`text-sm text-gray-700 transition-colors duration-300 hover:text-blue-500 border-b-2 mt-1`}
               dangerouslySetInnerHTML={{ __html: item.content1 }}
             />
           )}
           {item.content2 && (
             <p
-              className={`text-sm text-gray-700 transition-colors duration-300 hover:text-blue-500`}
+              className={`text-sm text-gray-700 transition-colors duration-300 hover:text-blue-500 border-b-2 mt-1`}
               dangerouslySetInnerHTML={{ __html: item.content2 }}
             />
           )}
           {item.content3 && (
             <p
-              className={`text-sm text-gray-700 transition-colors duration-300 hover:text-blue-500 `}
+              className={`text-sm text-gray-700 transition-colors duration-300 hover:text-blue-500 border-b-2 mt-1`}
               dangerouslySetInnerHTML={{ __html: item.content3 }}
             />
           )}
