@@ -79,7 +79,7 @@ const App = () => {
   }, [location]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-bg-main font-sans">
+    <div className="flex flex-col min-h-screen bg-bg-main font-sans mb-8">
       <AdmaxSwitch id="66be9478a9fd3b66bdf899e7085c3696" />
 
       <Header />
