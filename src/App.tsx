@@ -79,34 +79,33 @@ const App = () => {
   }, [location]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-bg-main font-sans mb-8">
-      <AdmaxSwitch id="66be9478a9fd3b66bdf899e7085c3696" />
-
+    <main className="flex flex-col min-h-screen bg-bg-main font-sans mb-8">
       <Header />
-      <div className="flex-grow px-4 mt-2">
+      <AdmaxSwitch id="66be9478a9fd3b66bdf899e7085c3696" />
+      <article className="flex-grow px-4 mt-2">
         <News news={news || []} />
-      </div>
-      <div className="py-1">
+      </article>
+      <nav className="py-1">
         <TabNavigation />
-      </div>
-      <div className="py-1 mt-1">
+      </nav>
+      <nav className="py-1 mt-1">
         <SubTabNavigation />
-      </div>
-      <div className="py-1 mt-1">
+      </nav>
+      <nav className="py-1 mt-1">
         <SegmentControl />
-      </div>
-      <div className="flex-grow px-4 mt-2">
+      </nav>
+      <section className="flex-grow px-4 mt-2">
         {isLoading ? (
           <div className="flex justify-center items-center mt-20">
             <Loading />
           </div>
         ) : (
-          <div className="mt-4">
+          <section className="mt-4">
             <TimeTable data={scheduleData} />
-          </div>
+          </section>
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
