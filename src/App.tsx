@@ -107,9 +107,6 @@ const App = () => {
           </section>
         )}
       </section>
-      <section className="flex justify-center mt-8">
-        <AdmaxSwitch id="1b962015b33aff100281e431257ec174" />
-      </section>
     </main>
   );
 };
