@@ -81,7 +81,9 @@ const App = () => {
   return (
     <main className="flex flex-col min-h-screen bg-bg-main font-sans mb-8">
       <Header />
-      <AdmaxSwitch id="66be9478a9fd3b66bdf899e7085c3696" />
+      <section className="flex justify-center mt-2">
+        <AdmaxSwitch id="1b962015b33aff100281e431257ec174" />
+      </section>
       <article className="flex-grow px-4 mt-2">
         <News news={news || []} />
       </article>
