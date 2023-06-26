@@ -11,10 +11,11 @@ const SNSShare = () => {
   const url = "https://kyoto-su-bus.vercel.app/";
   const title =
     "京都産業大学 神山シャトルン 上賀茂シャトルバス・二軒茶屋シャトルバス時刻表";
-  const iconSize = 40;
+  const iconSize = 45;
+
   return (
     // コンポーネントを中央揃えにする
-    <div className="">
+    <div className="space-x-4">
       <FacebookShareButton url={url} title={title}>
         <FacebookIcon size={iconSize} round />
       </FacebookShareButton>
