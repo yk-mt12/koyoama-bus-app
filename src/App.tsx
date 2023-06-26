@@ -25,6 +25,7 @@ import formatContents from "./hooks/formatContents.ts";
 import useContent from "./hooks/useContent.ts";
 import { NewsItem } from "./types/news.ts";
 import getNews from "./hooks/client.ts";
+import SNSShare from "./components/SNSShare/index.tsx";
 
 const App = () => {
   // ローカルステート
@@ -106,6 +107,15 @@ const App = () => {
             <TimeTable data={scheduleData} />
           </section>
         )}
+      </section>
+      <section className="mt-8 ">
+        <h2 className="flex justify-center text-xl">シェアして応援しよう!</h2>
+        <div className="flex justify-center mt-4">
+          <SNSShare />
+        </div>
+      </section>
+      <section className="flex justify-center mt-4">
+        <AdmaxSwitch id="1b962015b33aff100281e431257ec174" />
       </section>
     </main>
   );
