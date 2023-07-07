@@ -19,17 +19,23 @@ import Header from "./components/Header/";
 import Loading from "./components/Loading";
 import News from "./components/News/index.tsx";
 import AdmaxSwitch from "./components/Adsense/AdmaxSwitch.tsx";
+import SNSShare from "./components/SNSShare/index.tsx";
+import Banner from "./components/Banner/index.tsx";
 
 // hooks
 import formatContents from "./hooks/formatContents.ts";
 import useContent from "./hooks/useContent.ts";
+import getBanner from "./hooks/getBanner.ts";
+import getNews from "./hooks/getNews.ts";
+
+// types
 import { NewsItem } from "./types/news.ts";
-import getNews from "./hooks/client.ts";
-import SNSShare from "./components/SNSShare/index.tsx";
+import { BannerItem } from "./types/banner.ts";
 
 const App = () => {
   // ローカルステート
   const [news, setNews] = useState<NewsItem[] | undefined>(undefined);
+  const [banners, setBanners] = useState<BannerItem[] | undefined>(undefined);
 
   // グローバルステート
   const activeTab = useRecoilValue(activeTabState);
@@ -68,6 +74,12 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    getBanner().then((data: any) => {
+      setBanners(data.contents);
+    });
+  }, []);
+
+  useEffect(() => {
     // Google Analytics 測定 ID を入力して設定
     ReactGA.initialize(import.meta.env.VITE_GA_MEASUREMENT_ID);
 
@@ -83,7 +95,7 @@ const App = () => {
     <main className="flex flex-col min-h-screen bg-bg-main font-sans mb-8">
       <Header />
       <section className="flex justify-center mt-2">
-        <AdmaxSwitch id="1b962015b33aff100281e431257ec174" />
+        <Banner banners={banners || []} />
       </section>
       <article className="flex-grow px-4 mt-2">
         <News news={news || []} />
@@ -107,6 +119,9 @@ const App = () => {
             <TimeTable data={scheduleData} />
           </section>
         )}
+      </section>
+      <section className="flex justify-center mt-2">
+        <AdmaxSwitch id="1b962015b33aff100281e431257ec174" />
       </section>
       <section className="mt-8 ">
         <h2 className="flex justify-center text-xl">シェアして応援しよう!</h2>
