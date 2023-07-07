@@ -11,7 +11,7 @@ const Banner = ({ banners }: Props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentAdIndex((prevIndex) => (prevIndex + 1) % banners.length);
-    }, 5000); // バナーが自動的に切り替わる間隔
+    }, 4000); // バナーが自動的に切り替わる間隔
 
     return () => clearInterval(interval);
   }, [banners]);
