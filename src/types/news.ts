@@ -19,10 +19,3 @@ export type NewsItem = {
   content3: string;
   category: Category;
 };
-
-export type NewsResponse = {
-  contents: NewsItem[];
-  totalCount: number;
-  offset: number;
-  limit: number;
-};
