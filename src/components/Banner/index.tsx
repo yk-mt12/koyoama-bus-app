@@ -30,8 +30,8 @@ const Banner = ({ banners }: Props) => {
           }`}
         >
           {/* <!-- banner - start --> */}
-          <div className="mx-auto max-w-screen-2xl">
-            <div className="relative flex flex-wrap sm:flex-nowrap sm:items-center justify-center hover:">
+          <div className="mx-auto max-w-screen-2xl hover:opacity-80">
+            <div className="relative flex flex-wrap sm:flex-nowrap sm:items-center justify-center">
               <a href={banner.url}>
                 <img
                   src={banner.image.url}
