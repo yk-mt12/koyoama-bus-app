@@ -120,7 +120,7 @@ const App = () => {
           </section>
         )}
       </section>
-      <section className="flex justify-center mt-2">
+      <section className="flex justify-center mt-4">
         <AdmaxSwitch id="1b962015b33aff100281e431257ec174" />
       </section>
       <section className="mt-8 ">
