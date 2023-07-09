@@ -31,6 +31,7 @@ import getNews from "./hooks/getNews.ts";
 // types
 import { NewsItem } from "./types/news.ts";
 import { BannerItem } from "./types/banner.ts";
+import NendAd from "./components/Adsense/NendAd.tsx";
 
 const App = () => {
   // ローカルステート
@@ -96,6 +97,9 @@ const App = () => {
       <Header />
       <section className="flex justify-center mt-2">
         <Banner banners={banners || []} />
+      </section>
+      <section>
+        <NendAd />
       </section>
       <article className="flex-grow px-4 mt-2">
         <News news={news || []} />
